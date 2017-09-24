@@ -1,0 +1,37 @@
+Se o host a ser instalado for virtualbox então habilidade rede como bridge
+
+
+1. Download Centos 7
+
+Download Minimal iso
+wget http://mirror.globo.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
+
+Download DVD iso
+wget http://mirror.globo.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso
+
+2. Instalar o sistema
+
+3. Habilitar a interface de rede para boot e ativar com nmtui
+   Configurar o ip manual se for o caso
+
+4. Instalar guest additions
+   Inserir o disco de instalação pelo virtualbox
+   yum install gcc kernel-devel -y
+   mkdir -p /mnt/cdrom
+   mount /dev/cdrom /mnt/cdrom
+   sh /media/cdrom/VBoxLinuxAdditions.run
+
+4. Atualizar o sistema
+   sudo yum update -y
+
+yum install qemu-kvm libvirt
+systemctl start libvirtd
+chkconfig libvirtd on
+
+sudo curl -L https://github.com/dhiltgen/docker-machine-kvm/releases/download/v0.7.0/docker-machine-driver-kvm -o /usr/local/bin/docker-machine-driver-kvm
+
+sudo chmod +x /usr/local/bin/docker-machine-driver-kvm
+
+
+
+
