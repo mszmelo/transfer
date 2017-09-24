@@ -32,6 +32,17 @@ sudo curl -L https://github.com/dhiltgen/docker-machine-kvm/releases/download/v0
 
 sudo chmod +x /usr/local/bin/docker-machine-driver-kvm
 
+Criar repositorio local e transferir para github
+
+mkdir /home/marcelo/project
+git init
+create file project doc.txt
+git add doc.txt
+git commit -m "add doc.txt"
+git remote add origin https://github.com/mszmelo/transfer.git
+git push -u origin master
+
+
 
 
 
