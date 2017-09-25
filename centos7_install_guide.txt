@@ -24,18 +24,27 @@ wget http://mirror.globo.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso
 4. Atualizar o sistema
    sudo yum update -y
 
+5. Instalar kvm
 yum install qemu-kvm libvirt
 systemctl start libvirtd
 chkconfig libvirtd on
 
+6. Instalar kvm driver plug-in
 sudo curl -L https://github.com/dhiltgen/docker-machine-kvm/releases/download/v0.7.0/docker-machine-driver-kvm -o /usr/local/bin/docker-machine-driver-kvm
-
 sudo chmod +x /usr/local/bin/docker-machine-driver-kvm
+
+https://docs.openshift.org/latest/minishift/getting-started/setting-up-driver-plugin.html
+
+7. Download and install Minishift
+wget https://github.com/minishift/minishift/releases/download/v1.6.0/minishift-1.6.0-linux-amd64.tgz
+
 
 Criar repositorio local e transferir para github
 
 mkdir /home/marcelo/project
 git init
+git config --global user.name "Marcelo Melo"
+git config --global user.email "mszmelo@gmail.com"
 create file project doc.txt
 git add doc.txt
 git commit -m "add doc.txt"
